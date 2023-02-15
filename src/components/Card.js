@@ -8,15 +8,15 @@ import { usePokemon } from '../hooks/usePokemon';
 const StyledCard = styled.div`
     background-color: #aac545;
     color: black;
-    width: 350px;
+    width: 400px;
     border: 15px solid #ffde5e;
     border-radius: 15px;
-    padding: 2rem;
+    padding: 2rem 0;
 `;
 
 export const Card = () => {
 
-    const[currentId, isLoading, pokemon, getPokemon] = usePokemon();
+    const[currentId, isLoading, pokemon, weaknesses, getPokemon] = usePokemon();
 
     return(
         <StyledCard>
@@ -26,13 +26,17 @@ export const Card = () => {
                 ) : (
                     <div>
                         {/* Head container */}
-                        <Head name={pokemon.name}/>
+                        <Head pokemon={pokemon}/>
                         {/* Screen container */}
-                        <Screen img={pokemon.sprites.front_default}/>
+                        <Screen img={pokemon.sprites.other.home.front_default}/>
                         {/* Info container */}
                         <Info pokemon={pokemon}/>
 
                         {/* Buttons container */}
+                        <div>
+                            <b>weaknesses</b>
+                            <p>{weaknesses}</p>
+                        </div>
                         <div className='Buttons'>
                             <AiFillCaretLeft
                                 onClick={()=> getPokemon(currentId > 1 ? currentId - 1 : currentId)}/>
