@@ -1,12 +1,14 @@
 import './App.css';
-import { Card } from './components/Card';
+/* import { Card } from './components/Card'; */
+import MediaCard from './components/CustomCard';
 
 function App() {
 
   return (
     <div className="App">
       <header className="App-header">
-        <Card/>
+        {/* <Card/> */}
+        <MediaCard/>
       </header>
     </div>
   );
