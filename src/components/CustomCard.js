@@ -5,11 +5,9 @@ import CardHeader from '@mui/material/CardHeader';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
 import { usePokemon } from '../hooks/usePokemon';
 import { AiFillCaretRight, AiFillCaretLeft } from "react-icons/ai";
 import { Grid } from '@mui/material';
-
 
 export default function MediaCard() {
 
@@ -22,14 +20,17 @@ export default function MediaCard() {
             isLoading ? (
                 <></>
             ) : (
-                <Card sx={{ maxWidth: 360, bgcolor: 'green', border: ' 15px solid yellow'}}>
+                <Card sx={{ minWidth: 300, bgcolor: 'green', border: ' 15px solid yellow'}}>
                 <CardHeader
                 avatar={
-                <Avatar sx={{ bgcolor: 'black'}} aria-label="recipe">
-                    <img src={pokemon.sprites.front_default}/>
+                <Avatar sx={{ bgcolor: 'white'}} aria-label="recipe">
+                    <div>
+                        <img src={pokemon.sprites.front_default}/>
+                    </div>
                 </Avatar>
                 }
                 title={pokemon.name}
+                subheader={pokemon.types.map((item, index) => <strong key={index}>{item.type.name} </strong>)}
                 />
                 <CardMedia
                     sx={{ width:200, height: 200}}
@@ -37,33 +38,15 @@ export default function MediaCard() {
                     title={pokemon.name}
                 />
                 <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                        Details
-                </Typography>
                 <Grid container spacing={2}>
-                    <Grid item xs={6}>
-                        <p><b>Weight:</b> <span>{pokemon.weight / 10} Kg.</span></p>
-                        <p><b>Height:</b> <span>{pokemon.height / 10} m</span></p>
+                    <Grid item xs={12}>
+                        <p>
+                            <b>Weight:</b> <span>{pokemon.weight / 10} Kg. </span> 
+                            <b>Height:</b> <span>{pokemon.height / 10} m</span>
+                         </p>
                     </Grid>
-                    <Grid item xs={6}>
-                    <b>Abilities</b>
-                    { pokemon.abilities.map((item, index) =>
-                        <div key={index}>
-                            <label>{item.ability.name}</label>
-                        </div> 
-                    )}
-                    </Grid>
-                    <Grid item xs={6}>
-                        <b>Types</b>
-                        { pokemon.types.map((item, index) =>
-                            <Typography key={index} variant="body2" color="text.secondary">
-                                {item.type.name}
-                            </Typography>
-                        )}
-                    </Grid>
-                    <Grid item xs={6}>
-                        <b>Weaknesses</b>
-                        <p>{weaknesses}</p>
+                    <Grid item xs={12}>
+
                     </Grid>
                 </Grid>
 
