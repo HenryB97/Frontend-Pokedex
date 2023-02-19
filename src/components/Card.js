@@ -15,7 +15,7 @@ const StyledCard = styled.div`
 `;
 
 export const Card = () => {
-
+ 
     const[currentId, isLoading, pokemon, weaknesses, getPokemon] = usePokemon();
 
     return(

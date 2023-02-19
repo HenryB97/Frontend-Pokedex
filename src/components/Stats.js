@@ -1,6 +1,5 @@
-
-export const Stats = () => (
-    <>
-    
-    </>
-)
+export default function Stats() {
+  return (
+    <div>Stats</div>
+  )
+}
