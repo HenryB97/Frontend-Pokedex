@@ -1,18 +1,16 @@
-import styled from "styled-components"
+import styled from "styled-components";
 import { Details } from "./Details";
+import { Stats } from "./Stats";
+import { Weaknesses } from "./Weaknesses";
 
 const StyledInfo = styled.div`
-
+  padding: 0 1rem 1rem 1rem;
 `;
 
-export const Info = ({pokemon}) => (
-    <StyledInfo>
-        <Details pokemon={pokemon}/>
-        <b>Types</b>
-        { pokemon.types.map((item, index) =>
-            <div key={index}>
-                <label>{item.type.name}</label>
-            </div> 
-        )}
-    </StyledInfo>
-)
+export const Info = ({ pokemon, weaknesses }) => (
+  <StyledInfo>
+    <Details pokemon={pokemon} />
+    <Weaknesses weaknesses={weaknesses} />
+    <Stats stats={pokemon.stats} />
+  </StyledInfo>
+);

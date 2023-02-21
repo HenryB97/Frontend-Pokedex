@@ -4,7 +4,7 @@ const StyledAvatar = styled.img`
     width: 45px;
     height: 45px;
     border-radius: 100%;
-    background-color: white
+    background-color: white;
 `;
 
 export const Avatar = ({img}) => (
