@@ -1,0 +1,52 @@
+.app {
+    background: linear-gradient(to left,rgb(216, 38, 37, .8)50%,#e5e6e9 50%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+.formContainer {
+    padding: 2rem 5rem 5rem 5rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px 12px rgb(0, 0, 0, .2);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.formTitle {
+    color: #D82625;
+    text-align: center;
+}
+
+.formInput {
+    padding: .3rem 1rem;
+    border-radius: 10px;
+    border: 1px solid rgb(0, 0, 0, .3);
+    margin-bottom: 10px;
+}
+
+.formButton {
+    margin-top: 10px;
+    background-color: #D82625;
+    color:  white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.formButton:hover {
+    opacity: .8;
+}
+
+.errorMessage {
+    color: red;
+    font-size: 10px;
+}

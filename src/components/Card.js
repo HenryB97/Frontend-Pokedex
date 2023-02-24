@@ -6,6 +6,16 @@ import { AiFillCaretRight, AiFillCaretLeft } from "react-icons/ai";
 import { usePokemon } from "../hooks/usePokemon";
 import bgBody from "../assets/bg-body.jpg";
 
+const StyledContainer = styled.div`
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+`;
+
 const StyledCard = styled.div`
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url(${bgBody});
@@ -37,34 +47,36 @@ export const Card = () => {
   const [currentId, isLoading, pokemon, weaknesses, getPokemon] = usePokemon();
 
   return (
-    <StyledCard>
-      {isLoading ? (
-        <></>
-      ) : (
-        <>
-          <Header pokemon={pokemon} />
+    <StyledContainer>
+      <StyledCard>
+        {isLoading ? (
+          <></>
+        ) : (
+          <>
+            <Header pokemon={pokemon} />
 
-          <Screen img={pokemon.sprites.other.home.front_default} />
+            <Screen img={pokemon.sprites.other.home.front_default} />
 
-          <Info pokemon={pokemon} weaknesses={weaknesses} />
+            <Info pokemon={pokemon} weaknesses={weaknesses} />
 
-          <StyledButton style={{ left: -40 }}>
-            <AiFillCaretLeft
-              onClick={() =>
-                getPokemon(currentId > 1 ? currentId - 1 : currentId + 149)
-              }
-            />
-          </StyledButton>
+            <StyledButton style={{ left: -40 }}>
+              <AiFillCaretLeft
+                onClick={() =>
+                  getPokemon(currentId > 1 ? currentId - 1 : currentId + 149)
+                }
+              />
+            </StyledButton>
 
-          <StyledButton style={{ right: -75 }}>
-            <AiFillCaretRight
-              onClick={() =>
-                getPokemon(currentId > 149 ? currentId -149 : currentId + 1)
-              }
-            />
-          </StyledButton>
-        </>
-      )}
-    </StyledCard>
+            <StyledButton style={{ right: -75 }}>
+              <AiFillCaretRight
+                onClick={() =>
+                  getPokemon(currentId > 149 ? currentId - 149 : currentId + 1)
+                }
+              />
+            </StyledButton>
+          </>
+        )}
+      </StyledCard>
+    </StyledContainer>
   );
 };

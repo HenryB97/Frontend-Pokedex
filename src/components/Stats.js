@@ -24,9 +24,8 @@ export const Stats = ({ stats }) => {
     datasets: [
       {
         label: "Stats",
-        data: [...values],
+        data: values,
         backgroundColor: "#FE8100",
-        color: "#000",
       },
     ],
   };
