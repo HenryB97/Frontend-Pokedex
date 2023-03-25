@@ -1,6 +1,5 @@
+import { getPokemonById } from "../services/pokemon";
 import { useEffect, useState } from "react";
-
-const pokeApiDomain = `https://pokeapi.co/api/v2/pokemon/`;
 
 export const usePokemon = () => {
   const [currentId, setCurrentId] = useState(1);
@@ -46,8 +45,7 @@ export const usePokemon = () => {
   };
 
   useEffect(() => {
-    fetch(`${pokeApiDomain}${currentId}`)
-      .then((response) => response.json())
+    getPokemonById(currentId)
       .then((pokemonData) => {
         setCurrentId(pokemonData.id);
         setPokemon(pokemonData);
@@ -56,9 +54,9 @@ export const usePokemon = () => {
       });
   }, [currentId]);
 
-  const getPokemon = (id) => {
+  const getAnotherPokemon = (id) => {
     setCurrentId(id);
   };
 
-  return [currentId, isLoading, pokemon, weaknesses, getPokemon];
+  return [currentId, isLoading, pokemon, weaknesses, getAnotherPokemon];
 };

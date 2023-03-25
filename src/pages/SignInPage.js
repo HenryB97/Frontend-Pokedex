@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import "../styles/SignIn.css";
 
-export default function SignInComponent() {
+export default function SignInPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
@@ -11,8 +11,8 @@ export default function SignInComponent() {
 
   const navigate = useNavigate();
 
-  const homePage = () => {
-    navigate("/home");
+  const pokedexPage = () => {
+    navigate("/pokedex");
   };
 
   const handleEmailInputChange = (e) => {
@@ -51,26 +51,20 @@ export default function SignInComponent() {
     if (!password) {
       passwordError = "Password can't be empty";
     } else if (password.length < 8) {
-      console.log(password.length);
       passwordError = "Password should be at least 8 characters";
     }
 
     if (emailError || passwordError) {
       setEmailError(emailError);
       setPasswordError(passwordError);
-      console.log("emailErrorS", emailErrorS);
-      console.log("passwordErrorS", passwordErrorS);
-      alert(
-        JSON.stringify({ emailError: emailError, passwordError: passwordError })
-      );
       e.preventDefault();
     } else {
-      homePage();
+      pokedexPage();
     }
   };
 
   return (
-    <div div className="app">
+    <div className="app">
       <div className="formContainer">
         <h1 className="formTitle">Sign In</h1>
         <form onSubmit={handleSubmit} className="form">
