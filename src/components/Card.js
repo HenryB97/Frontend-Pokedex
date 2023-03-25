@@ -6,8 +6,7 @@ import { AiFillCaretRight, AiFillCaretLeft } from "react-icons/ai";
 import { usePokemon } from "../hooks/usePokemon";
 import bgBody from "../assets/bg-body.jpg";
 
-const StyledContainer = styled.div`
-  background-color: #282c34;
+export const StyledContainer = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -44,7 +43,7 @@ const StyledButton = styled.div`
 `;
 
 export const Card = () => {
-  const [currentId, isLoading, pokemon, weaknesses, getPokemon] = usePokemon();
+  const [currentId, isLoading, pokemon, weaknesses, getAnotherPokemon] = usePokemon();
 
   return (
     <StyledContainer>
@@ -62,7 +61,7 @@ export const Card = () => {
             <StyledButton style={{ left: -40 }}>
               <AiFillCaretLeft
                 onClick={() =>
-                  getPokemon(currentId > 1 ? currentId - 1 : currentId + 149)
+                  getAnotherPokemon(currentId > 1 ? currentId - 1 : currentId + 149)
                 }
               />
             </StyledButton>
@@ -70,7 +69,7 @@ export const Card = () => {
             <StyledButton style={{ right: -75 }}>
               <AiFillCaretRight
                 onClick={() =>
-                  getPokemon(currentId > 149 ? currentId - 149 : currentId + 1)
+                  getAnotherPokemon(currentId > 149 ? currentId - 149 : currentId + 1)
                 }
               />
             </StyledButton>
