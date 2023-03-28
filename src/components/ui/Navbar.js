@@ -37,7 +37,11 @@ export default function Navbar() {
             <Button color="inherit">Log out</Button>
           </Link>
 
-          <Switch color="default" onChange={data.handleTheme} />
+          <Switch
+            checked={data.themeStatus}
+            color="default"
+            onChange={data.handleTheme}
+          />
         </Toolbar>
       </AppBar>
     </Box>

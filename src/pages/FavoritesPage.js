@@ -26,7 +26,7 @@ export default function FavoritesPage() {
     <div className={data.theme}>
       <Navbar />
       <div style={{ padding: "5rem" }}>
-        <div style={{ height: 400, width: "40%", backgroundColor: "white" }}>
+        <div style={{ height: 400, width: "100%", backgroundColor: "white" }}>
           <DataGrid
             rows={favorites}
             columns={columns}
